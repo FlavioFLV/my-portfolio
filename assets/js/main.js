@@ -113,22 +113,24 @@ tabs.forEach(tab => {
     })
 })
 
-/*==================== PORTFOLIO SWIPER  ====================*/
-let swiperPortfolio = new Swiper(".portfolio__container", {
-    cssMode: true,
-    grabCursor: true,
-    // loop: true,
-
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+// /*==================== MIXITUIP FILTER PORTFOLIO  ====================*/
+let mixerPortfolio = mixitup(".portfolio__container", {
+    selectors: {
+        target: '.portfolio__card'
     },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
+    animation: {
+        duration: 300
+    }
 });
+/* Link active portfolio */
+const linksPortfolio = document.querySelectorAll(".portfolio__item");
+
+function activePortfolio() {
+    linksPortfolio.forEach(link => link.classList.remove("active-portfolio"));
+    this.classList.add("active-portfolio");
+}
+
+linksPortfolio.forEach(link => link.addEventListener("click", activePortfolio));
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
@@ -258,16 +260,14 @@ contactForm.addEventListener("submit", sendEmail);
 const sr = ScrollReveal({
     origin: "right",
     distance: "60px",
-    duration: 2000,
-    delay: 100,
-    // reset: true
+    reset: true
 })
 
-sr.reveal(`.home__img`, {distance: "50px"});
-sr.reveal(`.home__social, .home__data`, {origin: "top", interval: 100});
-sr.reveal(`.home__scroll, .about__img, .about__data`, {origin: "bottom", interval: 100});
-sr.reveal(`.section__title, .section__subtitle, .footer__container, .portfolio__container`, {origin: "bottom", delay: 0});
-sr.reveal(`.about__data`, {origin: "bottom"});
-sr.reveal(`.skills__box:nth-child(1), .contact__information`, {origin: "left"});
-sr.reveal(`.skills__box:nth-child(2), .contact__form`, {origin: "right", distance: "22px"});
-sr.reveal(`.qualification__container, .project__container`, {delay: 0, origin: "top"})
+sr.reveal(`.home__img`, { distance: "50px"} );
+sr.reveal(`.home__social, .home__data`, { origin: "top", interval: 100 });
+sr.reveal(`.home__scroll, .about__img, .about__data`, { origin: "bottom", interval: 100 });
+sr.reveal(`.section__title, .section__subtitle, .footer__container, .portfolio__container`, { origin: "bottom" });
+sr.reveal(`.about__data`, { origin: "bottom" });
+sr.reveal(`.skills__box:nth-child(1), .contact__information`, { origin: "left" });
+sr.reveal(`.skills__box:nth-child(2), .contact__form`, { origin: "right", distance: "22px" });
+sr.reveal(`.qualification__container, .project__container`, { origin: "top" });
