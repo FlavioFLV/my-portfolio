@@ -937,8 +937,7 @@ img {
   color: var(--text-color-light);
 }
 .contact-whatsapp:hover,
-.contact__email:hover,
-.contact__localization:hover {
+.contact__email:hover {
   text-decoration: underline;
 }
 
